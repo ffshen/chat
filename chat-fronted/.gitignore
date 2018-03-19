@@ -21,5 +21,7 @@ pom_fatjar.xml
 
 build/
 .gradle/
+dist
+node_modules
 
 
