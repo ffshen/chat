@@ -1,0 +1,58 @@
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+version = '1.0.0'
+
+repositories{
+    maven {
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies{
+    //
+    compile 'io.vertx:vertx-core:3.5.1'
+    compile 'io.vertx:vertx-web:3.5.1'
+    compile 'io.vertx:vertx-web:3.5.1:client'
+    //
+    compile("org.springframework.boot:spring-boot-starter:1.5.9.RELEASE")
+    //
+    testCompile "junit:junit:4.11"
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies{
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+    }
+}
+
+springBoot {
+    executable = true
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["src/main/resources"]
+        }
+    }
+}
+
+jar {
+    baseName = 'chat'
+    manifest {
+        attributes "Main-Class": "org.pliers.chat.Main"
+    }
+}
+
+task createDirs << {
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
