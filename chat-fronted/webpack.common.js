@@ -1,6 +1,8 @@
-const path = require('path');
+const path = require('path');//路径
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+
 
 module.exports = {
     entry: {
@@ -13,10 +15,13 @@ module.exports = {
 	plugins: [
       new CleanWebpackPlugin(['dist']),
       new HtmlWebpackPlugin({
-        title: 'Output Management',
+        title: 'ChatRoom',
           template: './admin.html',
       })
     ],
+    node: {
+        fs: "empty"
+    },
     resolve: {
         alias: {
             'uikit$': 'uikit/dist/js/uikit.js',

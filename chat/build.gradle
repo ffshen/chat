@@ -17,7 +17,8 @@ dependencies{
     //
     compile 'io.vertx:vertx-core:3.5.1'
     compile 'io.vertx:vertx-web:3.5.1'
-    compile 'io.vertx:vertx-web:3.5.1:client'
+    compile 'io.vertx:vertx-auth-jwt:3.5.1'
+//    compile 'io.vertx:vertx-web:3.5.1:client'
     //
     compile("org.springframework.boot:spring-boot-starter:1.5.9.RELEASE")
     //
